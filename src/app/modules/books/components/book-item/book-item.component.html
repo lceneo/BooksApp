@@ -1,0 +1,47 @@
+
+<button class="returnBtn" mat-icon-button
+        [routerLink]="'./..'"
+        [matTooltip]="'bookList.name' | translate">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+<div class="wrapper" *ngLet = "book$ | async as book">
+  <ng-container *ngIf="loaded(); else loadingTemplate">
+    <mat-card *ngIf="book; else notFoundTemplate">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{book.title}}</mat-card-title>
+          <mat-card-subtitle>{{book.authorID | getAuthorName}}</mat-card-subtitle>
+          <img mat-card-xl-image src="/assets/img/book.png" >
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <p><span class="wrapper-subtitle">{{('bookList.genre' | translate) + ': '}}</span>{{book.genreID | getGenreName}}</p>
+        <p><span class="wrapper-subtitle">{{('bookList.language' | translate) + ': '}}</span>{{book.languageID | getLanguageName}}</p>
+        <p><span class="wrapper-subtitle">{{('bookList.publicationYear' | translate) + ': '}}</span>{{book.publicationYear}}</p>
+        <p><span class="wrapper-subtitle">{{('bookList.pagesNumber' | translate) + ': '}}</span>{{book.pagesNumber}}</p>
+        <p class="books__description"><span class="wrapper-subtitle">{{('bookList.description' | translate) + ': '}}</span>{{book.description}}</p>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+  <app-paginator *ngIf = "book"
+    [previousPageAvailable]="!!previousBookId()"
+    [nextPageAvailable] = "!!nextBookId()"
+    (previousPageTriggered)="switchPage(false)"
+    (nextPageTriggered)="switchPage(true)"
+  ></app-paginator>
+</div>
+
+
+
+
+<ng-template #loadingTemplate>
+  <mat-spinner></mat-spinner>
+</ng-template>
+
+<ng-template #notFoundTemplate>
+  <div class="notFound">
+    <img src="assets/img/no_results.jpg" width="500">
+    <p class="noResultsText">{{'bookList.noBooks' | translate}}</p>
+  </div>
+</ng-template>

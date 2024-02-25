@@ -1,0 +1,39 @@
+:host {
+  padding-top: 1rem;
+}
+
+.title {
+  margin: 0;
+}
+
+
+.form-wrapper {
+  padding: 1em;
+}
+
+
+.form {
+  &__substringSearch {
+    width: 100%;
+  }
+
+  &__selection-fields {
+    .mat-mdc-form-field {
+      display: block;
+    }
+  }
+
+  &__btnBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    button:not(:last-child) {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+.genreTitle {
+  font-weight: 500;
+}

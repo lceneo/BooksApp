@@ -1,0 +1,6 @@
+@mixin mat-button {
+  .mat-mdc-icon-button svg {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,11 @@
+
+.form {
+  display: block;
+  width: 100%;
+}
+
+:host ::ng-deep {
+  .mat-mdc-dialog-content {
+    overflow-y: hidden;
+  }
+}

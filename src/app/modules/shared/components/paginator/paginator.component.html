@@ -1,0 +1,15 @@
+
+<div class="wrapper">
+
+  <button mat-icon-button [disabled] = "!previousPageAvailable"
+          [matTooltip]="'pagination.previous' | translate"
+    (click)="switchPage(false)">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+
+  <button mat-icon-button [disabled] = "!nextPageAvailable"
+          [matTooltip]="'pagination.next' | translate"
+   (click) = "switchPage(true)">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

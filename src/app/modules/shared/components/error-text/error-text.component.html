@@ -1,0 +1,4 @@
+
+<ng-container *ngLet="errorsText | getErrorTranslations as errorText">
+    <mat-error class="error" [matTooltip]="errorText" >{{errorText}}</mat-error>
+</ng-container>

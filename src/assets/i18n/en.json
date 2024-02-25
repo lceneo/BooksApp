@@ -1,0 +1,91 @@
+{
+  "navigation": {
+    "books": "Books",
+    "authors": "Authors"
+  },
+  "bookList": {
+    "name": "Books list",
+    "new": "New book",
+    "genre": "Genre",
+    "language": "Language",
+    "publicationYear": "Year of publish",
+    "pagesNumber": "Number of pages",
+    "description": "Description",
+    "noBooks": "No books were found"
+  },
+  "authorList": {
+    "name": "Authors list",
+    "new": "New author",
+    "edit": "Edit",
+    "country": "Country",
+    "description": "Description"
+  },
+  "create": {
+    "author": {
+      "title": "New author"
+    },
+    "book": {
+      "title": "New book",
+      "name": "Book name",
+      "author": "Author"
+    }
+  },
+  "edit": {
+    "author": {
+      "title": "Edit author",
+      "surname": "Surname",
+      "name": "Name",
+      "patronymic": "Patronymic",
+      "country": "Country",
+      "birthDate": "Birth date",
+      "deathDate": "Death date",
+      "description": "Description"
+    }
+  },
+  "bookFilter": {
+    "title": "Filter by",
+    "search": "Search",
+    "writers": "Writers",
+    "languages": "Languages",
+    "genre": "Genre",
+    "from": "From",
+    "to": "To"
+  },
+  "confirm": {
+    "title": {
+      "leave": "Leaving the page"
+    },
+    "text": {
+      "unsavedChanges": "Are you sure you want to leave the page? All made changes won't be saved"
+    }
+  },
+  "btn": {
+    "apply": "Apply",
+    "reset": "Reset",
+    "create": "Create",
+    "update": "Update",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "errors": {
+    "min": "Must be at least {{actualLength}}",
+    "max": "Must be less than {{maxLength}}",
+    "required": "Required field",
+    "minLength": "Minimal length - {{requiredLength}}, actual - {{actualLength}}",
+    "maxLength": "Maximal length - {{requiredLength}}, actual - {{actualLength}}",
+    "minTrimLength": "Minimal trimmed length must be {{minLength}}",
+    "maxTrimLength": "Maximal trimmed length must be {{maxLength}}",
+    "biggerOrEqualToOtherControl": "Must be smaller than secondary value",
+    "biggerThanOtherControl": "Must be smaller or equal to secondary value",
+    "smallerOrEqualToOtherControl": "Must be bigger or equal to secondary value",
+    "smallerThanOtherControl": "Must exceed secondary value",
+    "incorrectPageLimit": "Must be in interval between {{minValue}} and {{maxValue}}"
+  },
+  "pagination": {
+    "next": "Next page",
+    "previous": "Previous page"
+  },
+  "notFound": {
+    "title": "Non-existant page"
+  }
+}

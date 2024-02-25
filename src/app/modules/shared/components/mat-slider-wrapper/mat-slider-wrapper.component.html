@@ -1,0 +1,24 @@
+
+<mat-slider [min]="minValue!" [max]="maxValue!" [step]="step ?? ((maxValue! - minValue!) / 100)"
+            (blur)="handleBlur()">
+<!--  value attribute is needed to sync multiple inputs being linked with the same formControl-->
+  <input class="sliderStart" [formControl]="currentFromValue!" matSliderStartThumb [value]="currentFromValue?.value">
+  <input class="sliderEnd" [formControl]="currentToValue!" matSliderEndThumb [value]="currentToValue?.value">
+</mat-slider>
+
+<section class="inputs-section">
+  <!--  value attribute is needed to sync multiple inputs being linked with the same formControl-->
+  <mat-form-field>
+    <mat-label>{{'bookFilter.from' | translate}}</mat-label>
+    <input matInput type="number"
+           [formControl]="currentFromValue!" [value]="currentFromValue?.value">
+    <app-error-text *ngIf = "currentFromValue?.errors" [errors]="currentFromValue!.errors"></app-error-text>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{'bookFilter.to' | translate}}</mat-label>
+    <input matInput type="number"
+           [formControl]="currentToValue!" [value]="currentToValue?.value">
+    <app-error-text  *ngIf = "currentToValue?.errors" [errors]="currentToValue!.errors"></app-error-text>
+  </mat-form-field>
+</section>

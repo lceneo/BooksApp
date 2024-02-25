@@ -1,0 +1,84 @@
+
+<button class="returnBtn" mat-icon-button
+        (click)="returnToTheAuthorsList()"
+        [matTooltip]="'authorList.name' | translate">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+<div class="wrapper">
+  <h1 class="title">{{'create.author.title' | translate}}</h1>
+  <form class="form" [formGroup]="authorForm" (submit)="createNewAuthor()">
+
+    <mat-form-field>
+      <mat-label>{{'edit.author.surname' | translate}}</mat-label>
+      <mat-icon matIconPrefix>person_pin</mat-icon>
+      <input [formControlName]="'surname'" matInput>
+      <app-error-text *ngIf = "authorForm!.get('surname')?.touched && authorForm.get('surname')!.errors" [errors]="authorForm.get('surname')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'edit.author.name' | translate}}</mat-label>
+      <mat-icon matIconPrefix>person_pin</mat-icon>
+      <input [formControlName]="'name'" matInput>
+      <app-error-text *ngIf = "authorForm!.get('name')?.touched && authorForm.get('name')!.errors" [errors]="authorForm.get('name')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'edit.author.patronymic' | translate}}</mat-label>
+      <mat-icon matIconPrefix>person_pin</mat-icon>
+      <input [formControlName]="'patronymic'" matInput>
+      <app-error-text *ngIf = "authorForm!.get('patronymic')?.touched && authorForm.get('patronymic')!.errors" [errors]="authorForm.get('patronymic')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'edit.author.country' | translate}}</mat-label>
+      <mat-icon matIconPrefix>language</mat-icon>
+      <mat-select [formControlName]="'countryID'"
+      >
+        <mat-option *ngFor="let country of countries()"
+                    [value]="country.ID"
+        >{{country.ID | getCountryName}}</mat-option>
+      </mat-select>
+      <app-error-text *ngIf = "authorForm!.get('countryID')?.touched && authorForm.get('countryID')!.errors" [errors]="authorForm.get('countryID')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'edit.author.birthDate' | translate}}</mat-label>
+      <input matInput [matDatepicker]="pickerStart" [formControlName]="'birthDate'">
+      <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+      <mat-datepicker #pickerStart></mat-datepicker>
+      <app-error-text *ngIf = "authorForm!.get('birthDate')?.touched && authorForm.get('birthDate')!.errors" [errors]="authorForm.get('birthDate')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'edit.author.deathDate' | translate}}</mat-label>
+      <input matInput [matDatepicker]="pickerEnd" [formControlName]="'deathDate'">
+      <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+      <mat-datepicker #pickerEnd></mat-datepicker>
+      <app-error-text *ngIf = "authorForm!.get('deathDate')?.touched && authorForm.get('deathDate')!.errors" [errors]="authorForm.get('deathDate')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'edit.author.description' | translate}}</mat-label>
+      <mat-icon matIconPrefix>text_format</mat-icon>
+      <textarea class="form__description" matInput
+                [formControlName]="'description'"
+                appTextareaResize
+      ></textarea>
+      <app-error-text *ngIf = "authorForm!.get('description')?.touched && authorForm.get('description')!.errors" [errors]="authorForm.get('description')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <div class="form__btnBox">
+      <button class="form__createBtn" mat-flat-button
+              [color]="'primary'"
+              [disabled] = "authorForm.invalid"
+      >{{'btn.create' | translate}}</button>
+
+      <button mat-flat-button color="warn" type="button"
+              [disabled] = "resetBtnDisabled()"
+              (click) = "resetForm()">
+        {{'btn.reset' | translate}}
+      </button>
+    </div>
+  </form>
+</div>

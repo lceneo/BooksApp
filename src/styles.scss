@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global global-styles to this file, and also import other style files */
+
+@use '@angular/material' as mat;
+@import 'src/app/global-styles/list.scss';
+@import 'src/app/global-styles/mat-card.scss';
+@import 'src/app/global-styles/mat-select.scss';
+@import 'src/app/global-styles/mat-form-field.scss';
+@import 'src/app/global-styles/mat-dialog.scss';
+@import "src/app/global-styles/mat-button";
+
+@include list;
+@include mat-card;
+@include mat.form-field-density(-3);
+@include mat-select;
+@include mat-form-field;
+@include mat-dialog;
+@include mat-button;
+
+html, body {
+  height: 100%;
+  scrollbar-color: #2f81d4 #f4f3f3;
+  scrollbar-width: thin;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+

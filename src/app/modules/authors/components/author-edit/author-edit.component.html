@@ -1,0 +1,75 @@
+
+<h1 mat-dialog-title>{{'edit.author.title' | translate}}</h1>
+<mat-dialog-content>
+
+    <form class="form" [formGroup]="editForm" (submit)="updateAuthor()">
+
+      <mat-form-field>
+        <mat-label>{{'edit.author.surname' | translate}}</mat-label>
+        <mat-icon matIconPrefix>person_pin</mat-icon>
+        <input [formControlName]="'surname'" matInput>
+        <app-error-text *ngIf = "editForm!.get('surname')?.touched && editForm.get('surname')!.errors" [errors]="editForm.get('surname')!.errors"></app-error-text>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{'edit.author.name' | translate}}</mat-label>
+        <mat-icon matIconPrefix>person_pin</mat-icon>
+        <input [formControlName]="'name'" matInput>
+        <app-error-text *ngIf = "editForm!.get('name')?.touched && editForm.get('name')!.errors" [errors]="editForm.get('name')!.errors"></app-error-text>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{'edit.author.patronymic' | translate}}</mat-label>
+        <mat-icon matIconPrefix>person_pin</mat-icon>
+        <input [formControlName]="'patronymic'" matInput>
+        <app-error-text *ngIf = "editForm!.get('patronymic')?.touched && editForm.get('patronymic')!.errors" [errors]="editForm.get('patronymic')!.errors"></app-error-text>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{'edit.author.country' | translate}}</mat-label>
+        <mat-icon matIconPrefix>language</mat-icon>
+        <mat-select [formControlName]="'countryID'"
+        >
+          <mat-option *ngFor="let country of countries()"
+                      [value]="country.ID"
+          >{{country.ID | getCountryName}}</mat-option>
+        </mat-select>
+        <app-error-text *ngIf = "editForm!.get('countryID')?.touched && editForm.get('countryID')!.errors" [errors]="editForm.get('countryID')!.errors"></app-error-text>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{'edit.author.birthDate' | translate}}</mat-label>
+        <input matInput [matDatepicker]="pickerStart" [formControlName]="'birthDate'">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart></mat-datepicker>
+        <app-error-text *ngIf = "editForm!.get('birthDate')?.touched && editForm.get('birthDate')!.errors" [errors]="editForm.get('birthDate')!.errors"></app-error-text>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{'edit.author.deathDate' | translate}}</mat-label>
+        <input matInput [matDatepicker]="pickerEnd" [formControlName]="'deathDate'">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+        <app-error-text *ngIf = "editForm!.get('deathDate')?.touched && editForm.get('deathDate')!.errors" [errors]="editForm.get('deathDate')!.errors"></app-error-text>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{'edit.author.description' | translate}}</mat-label>
+        <mat-icon matIconPrefix>text_format</mat-icon>
+        <textarea class="form__description" matInput
+                  [formControlName]="'description'"
+                  appTextareaResize
+        ></textarea>
+        <app-error-text *ngIf = "editForm!.get('description')?.touched && editForm.get('description')!.errors" [errors]="editForm.get('description')!.errors"></app-error-text>
+      </mat-form-field>
+
+      <div class="form__btnBox">
+        <button class="form__createBtn" mat-flat-button
+                [color]="'primary'"
+                [disabled] = "editForm.invalid"
+        >{{'btn.update' | translate}}</button>
+      </div>
+    </form>
+
+</mat-dialog-content>
+

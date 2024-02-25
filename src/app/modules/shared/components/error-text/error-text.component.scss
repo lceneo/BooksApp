@@ -1,0 +1,13 @@
+:host {
+  position: absolute;
+  top: 2.7em;
+  left: -0.8em;
+  width: 100%;
+}
+
+.error {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 12px;
+}

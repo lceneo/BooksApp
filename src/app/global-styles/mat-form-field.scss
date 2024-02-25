@@ -1,0 +1,6 @@
+
+@mixin mat-form-field {
+  .mat-mdc-form-field-textarea-control {
+    resize: none !important;
+  }
+}

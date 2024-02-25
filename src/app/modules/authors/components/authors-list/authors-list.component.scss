@@ -1,0 +1,16 @@
+:host ::ng-deep {
+  .mat-mdc-card-content {
+    margin-top: -3em;
+  }
+  .mat-mdc-card-title-group {
+    :first-child {
+      flex-grow: 1;
+    }
+  }
+}
+
+.editBtn {
+  position: relative;
+  bottom: 0.5em;
+  left: 0.5em;
+}

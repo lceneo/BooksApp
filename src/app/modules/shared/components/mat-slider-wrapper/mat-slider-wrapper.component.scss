@@ -1,0 +1,20 @@
+.inputs-section {
+  display: flex;
+  justify-content: space-between;
+
+  .mat-mdc-form-field {
+    width: 100px;
+
+    &::ng-deep {
+      .mat-mdc-input-element {
+        text-align: center;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .mat-mdc-slider {
+    width: 90%;
+  }
+}

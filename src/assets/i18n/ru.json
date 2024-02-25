@@ -1,0 +1,91 @@
+{
+  "navigation": {
+    "books": "Книги",
+    "authors": "Авторы"
+  },
+  "bookList": {
+    "name": "Список книг",
+    "new": "Новая книга",
+    "genre": "Жанр",
+    "language": "Язык",
+    "publicationYear": "Год публикации",
+    "pagesNumber": "Количество страниц",
+    "description": "Описание",
+    "noBooks": "Не нашлось ни одной книги"
+  },
+  "authorList": {
+    "name": "Список авторов",
+    "new": "Новый автор",
+    "edit": "Редактировать",
+    "country": "Страна",
+    "description": "Описание"
+  },
+  "create": {
+    "author": {
+      "title": "Новый автор"
+    },
+    "book": {
+      "title": "Новая книга",
+      "name": "Наименование книги",
+      "author": "Автор"
+    }
+  },
+  "edit": {
+    "author": {
+      "title": "Изменение автора",
+      "surname": "Фамилия",
+      "name": "Имя",
+      "patronymic": "Отчество",
+      "country": "Страна",
+      "birthDate": "Дата рождения",
+      "deathDate": "Дата смерти",
+      "description": "Описание"
+    }
+  },
+  "bookFilter": {
+    "title": "Фильтрация",
+    "search": "Поиск",
+    "writers": "Писатели",
+    "languages": "Языки",
+    "genre": "Жанр",
+    "from": "От",
+    "to": "До"
+  },
+  "confirm": {
+    "title": {
+      "leave": "Закрытие страницы"
+    },
+    "text": {
+      "unsavedChanges": "Вы уверены, что хотите закрыть страницу? Все несохранённые изменения будут утеряны"
+    }
+  },
+  "btn": {
+    "apply": "Применить",
+    "reset": "Сбросить",
+    "create": "Создать",
+    "update": "Обновить",
+    "yes": "Да",
+    "no": "Нет"
+  },
+  "errors": {
+    "min": "Должно быть не меньше {{actualLength}}",
+    "max": "Должно быть не больше {{maxLength}}",
+    "required": "Обязательное поле",
+    "minLength": "Минимальная длина - {{requiredLength}}, текущая - {{actualLength}}",
+    "maxLength": "Максимальная длина - {{requiredLength}}, текущая - {{actualLength}}",
+    "minTrimLength": "Минимальная длина без пробелов должна составлять {{minLength}}",
+    "maxTrimLength": "Максимальная длина без пробелов должна составлять {{maxLength}}",
+    "biggerOrEqualToOtherControl": "Должен быть меньше второго значения",
+    "biggerThanOtherControl": "Должен быть меньше или равен второму значению",
+    "smallerOrEqualToOtherControl": "Должен быть больше второго значения",
+    "smallerThanOtherControl": "Должен быть больше или равен второму значению",
+    "incorrectPageLimit": "Должно быть между {{minValue}} и {{maxValue}}"
+  },
+  "pagination": {
+    "next": "Следующая страница",
+    "previous": "Предыдущая страница"
+  },
+  "notFound": {
+    "title": "Несуществующая страница"
+  }
+}

@@ -1,0 +1,6 @@
+
+ @mixin mat-dialog {
+   .custom-dialog-container .mat-dialog-container {
+      overflow-y: hidden !important;
+    }
+ }

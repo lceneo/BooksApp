@@ -1,0 +1,12 @@
+:host ::ng-deep {
+  .mat-mdc-card-content {
+    margin-top: -8em;
+  }
+}
+
+.items__item {
+  &:hover {
+    cursor: pointer;
+    border: 0.5px solid grey;
+  }
+}

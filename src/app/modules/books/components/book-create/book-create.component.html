@@ -1,0 +1,91 @@
+
+<button class="returnBtn" mat-icon-button
+        (click)="returnToTheBookList()"
+        [matTooltip]="'bookList.name' | translate">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+<div class="wrapper">
+  <h1 class="title">{{'create.book.title' | translate}}</h1>
+  <form class="form" [formGroup]="bookForm" (submit)="createNewBook()">
+
+    <mat-form-field>
+      <mat-label>{{'create.book.name' | translate}}</mat-label>
+      <mat-icon matIconPrefix>book</mat-icon>
+      <input [formControlName]="'title'" matInput>
+      <app-error-text *ngIf = "bookForm!.get('title')?.touched && bookForm.get('title')!.errors" [errors]="bookForm.get('title')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'create.book.author' | translate}}</mat-label>
+      <mat-icon matIconPrefix [svgIcon]="'feather'"></mat-icon>
+      <mat-select
+                  [formControlName]="'authorID'">
+        <mat-option *ngFor="let author of authors()"
+                    [value]="author.ID"
+        >{{author.ID | getAuthorName}}</mat-option>
+      </mat-select>
+      <app-error-text *ngIf = "bookForm!.get('authorID')?.touched && bookForm!.get('authorID')!.errors" [errors]="bookForm.get('authorID')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'bookList.publicationYear' | translate}}</mat-label>
+      <mat-icon matIconPrefix>calendar_today</mat-icon>
+      <input type="number" [formControlName]="'publicationYear'" matInput>
+      <app-error-text *ngIf = "bookForm!.get('publicationYear')?.touched && bookForm.get('publicationYear')!.errors" [errors]="bookForm.get('publicationYear')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'bookList.description' | translate}}</mat-label>
+      <mat-icon matIconPrefix>text_format</mat-icon>
+      <textarea class="form__description" matInput
+                [formControlName]="'description'"
+                appTextareaResize
+      ></textarea>
+      <app-error-text *ngIf = "bookForm!.get('description')?.touched && bookForm.get('description')!.errors" [errors]="bookForm.get('description')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'bookList.pagesNumber' | translate}}</mat-label>
+      <mat-icon matIconPrefix> format_list_numbered</mat-icon>
+      <input type="number" matInput [formControlName]="'pagesNumber'">
+      <app-error-text *ngIf = "bookForm!.get('pagesNumber')?.touched && bookForm.get('pagesNumber')!.errors" [errors]="bookForm.get('pagesNumber')!.errors"></app-error-text>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{'bookList.language' | translate}}</mat-label>
+      <mat-icon matIconPrefix>language</mat-icon>
+      <mat-select [formControlName]="'languageID'"
+      >
+        <mat-option *ngFor="let language of languages()"
+                    [value]="language.ID"
+        >{{language.ID | getLanguageName}}</mat-option>
+      </mat-select>
+      <app-error-text *ngIf = "bookForm!.get('languageID')?.touched && bookForm.get('languageID')!.errors" [errors]="bookForm.get('languageID')!.errors"></app-error-text>
+    </mat-form-field>
+
+
+    <mat-selection-list [multiple] ="false"
+                        [formControlName]="'genreID'"
+    >
+      <span matListItemTitle class="genreTitle">{{'bookList.genre' | translate}}</span>
+      <mat-list-option *ngFor="let genre of genres()"
+                       [value]="genre.ID">
+        {{genre.ID | getGenreName}}
+      </mat-list-option>
+    </mat-selection-list>
+
+    <div class="form__btnBox">
+      <button class="form__createBtn" mat-flat-button
+              [color]="'primary'"
+              [disabled] = "bookForm.invalid"
+      >{{'btn.create' | translate}}</button>
+
+      <button mat-flat-button color="warn" type="button"
+              [disabled] = "resetBtnDisabled()"
+              (click) = "resetForm()">
+        {{'btn.reset' | translate}}
+      </button>
+    </div>
+  </form>
+</div>

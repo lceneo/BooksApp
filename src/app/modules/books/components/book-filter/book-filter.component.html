@@ -1,0 +1,67 @@
+
+<h1 class="title">{{'bookFilter.title' | translate}}</h1>
+<section class="form-wrapper">
+  <form class="form" [formGroup]="filterForm!" (submit)="submitValue();">
+    <mat-form-field class="form__substringSearch">
+      <mat-label>{{'bookFilter.search' | translate}}</mat-label>
+      <mat-icon matIconPrefix>search</mat-icon>
+      <input matInput [formControlName]="'searchString'">
+    </mat-form-field>
+
+    <div class="form__selection-fields">
+      <mat-form-field>
+        <mat-label>{{'bookFilter.writers' | translate}}</mat-label>
+        <mat-icon matIconPrefix [svgIcon]="'feather'"></mat-icon>
+        <mat-select [multiple] = true
+                    [formControlName]="'authorsIDs'">
+          <mat-option *ngFor="let author of authors()"
+                      [value]="author.ID"
+          >{{author.ID | getAuthorName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{'bookFilter.languages' | translate}}</mat-label>
+        <mat-icon matIconPrefix>language</mat-icon>
+        <mat-select [multiple] = true
+                    [formControlName]="'languagesIDs'"
+        >
+          <mat-option *ngFor="let language of languages()"
+                      [value]="language.ID"
+          >{{language.ID | getLanguageName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <mat-selection-list [multiple] ="false"
+                        [formControlName]="'genreID'"
+    >
+      <span matListItemTitle class="genreTitle">{{'bookFilter.genre' | translate}}</span>
+      <mat-list-option *ngFor="let genre of genres()"
+          [value]="genre.ID">
+        {{genre.ID | getGenreName}}
+      </mat-list-option>
+    </mat-selection-list>
+
+
+    <app-mat-slider-wrapper
+      [minValue]="minPagesCount"
+      [maxValue]="maxPagesCount"
+      [step]="100"
+      [formControlName]="'pageLimit'"
+    ></app-mat-slider-wrapper>
+
+    <div class="form__btnBox">
+      <button mat-flat-button color="primary"
+              class="applyFilterBtn"
+              [disabled] = "applyButtonDisabled()"
+      >{{'btn.apply' | translate}}</button>
+
+      <button mat-flat-button color="warn" type="button"
+          (click) = "resetForm()">
+        {{'btn.reset' | translate}}
+      </button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,10 @@
+
+  <h1 mat-dialog-title>{{data.title}}</h1>
+    <mat-dialog-content>
+      <p>{{data.text}}</p>
+
+      <div class="btnBox">
+        <button mat-flat-button color="primary" (click) = "pickOption(true)">{{'btn.yes' | translate}}</button>
+        <button mat-flat-button color="warn" (click) = "pickOption(false)">{{'btn.no' | translate}}</button>
+      </div>
+  </mat-dialog-content>

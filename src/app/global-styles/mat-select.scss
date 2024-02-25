@@ -1,0 +1,15 @@
+
+
+@mixin mat-select {
+
+  .mat-accent .mdc-radio__background {
+    --mdc-radio-selected-focus-icon-color: #3f51b5;
+    --mdc-radio-selected-hover-icon-color: #3f51b5;
+    --mdc-radio-selected-icon-color: #3f51b5;
+    --mdc-radio-selected-pressed-icon-color: #3f51b5;
+  }
+
+  .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full {
+    background-color: #3f51b5;
+  }
+}

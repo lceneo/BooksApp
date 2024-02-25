@@ -1,0 +1,10 @@
+
+@mixin list() {
+  ul {
+    list-style: none;
+    padding: 0rem;
+    li:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+}
